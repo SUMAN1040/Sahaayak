@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Name: Suman Kumar Dey
+  ~ Info: Built a women safety app “SafeCircle” in Kotlin + XML integrating sensor data, mic audio, and an on-device ML model to detect real-time danger. Auto-triggers SMS, location sharing, and alarm on risk detection. Showcased advanced Android and edge ML integration.
+  ~ Connect with me: www.linkedin.com/in/suman1040
+  -->
+
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/logo3"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/logo3"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Sahaayak"
+        tools:targetApi="31">
+        <activity
+            android:name=".activities.EmergencyContactsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.SOSActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
