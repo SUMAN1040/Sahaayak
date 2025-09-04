@@ -37,6 +37,7 @@ class SignInActivity : AppCompatActivity() {
             viewModel.login(email, pass)
         }
 
+
         viewModel.authResult.observe(this) { result ->
             result.onSuccess {
                 startActivity(Intent(this, MainActivity::class.java))
@@ -46,5 +47,11 @@ class SignInActivity : AppCompatActivity() {
                 Toast.makeText(this, it.message, Toast.LENGTH_SHORT).show()
             }
         }
+
+        binding.goToSignUp.setOnClickListener {
+            val intent = Intent(this, SignUpActivity::class.java)
+            startActivity(intent)
+        }
+
     }
 }
