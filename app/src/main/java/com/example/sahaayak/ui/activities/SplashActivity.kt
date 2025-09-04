@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import com.example.sahaayak.R
+import com.example.sahaayak.auth.SignInActivity
 
 class SplashActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -13,7 +14,7 @@ class SplashActivity : AppCompatActivity() {
         setContentView(R.layout.activity_splash)
 
         window.decorView.postDelayed({
-            startActivity(Intent(this, OnboardingActivity::class.java)) // or MainActivity
+            startActivity(Intent(this, SignInActivity::class.java))
             finish()
         }, 3000)
     }

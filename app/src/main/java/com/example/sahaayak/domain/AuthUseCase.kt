@@ -6,5 +6,16 @@
 
 package com.example.sahaayak.domain
 
-class AuthUseCase {
+import com.example.sahaayak.data.repository.AuthRepository
+
+class AuthUseCase(private val repository: AuthRepository) {
+
+    suspend fun register(email: String, password: String) =
+        repository.signUp(email, password)
+
+    suspend fun login(email: String, password: String) =
+        repository.signIn(email, password)
+
+    fun currentUser() = repository.getCurrentUser()
+    fun logout() = repository.signOut()
 }

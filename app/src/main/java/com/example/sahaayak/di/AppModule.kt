@@ -6,5 +6,18 @@
 
 package com.example.sahaayak.di
 
-class AppModule {
+import com.example.sahaayak.data.repository.AuthRepository
+import com.example.sahaayak.domain.AuthUseCase
+import com.example.sahaayak.ui.viewmodel.AuthViewModel
+import com.google.firebase.auth.FirebaseAuth
+
+object AppModule {
+
+    private val firebaseAuth: FirebaseAuth by lazy { FirebaseAuth.getInstance() }
+    private val authRepository: AuthRepository by lazy { AuthRepository(firebaseAuth) }
+    private val authUseCase: AuthUseCase by lazy { AuthUseCase(authRepository) }
+
+    fun provideAuthViewModel(): AuthViewModel {
+        return AuthViewModel(authUseCase)
+    }
 }
